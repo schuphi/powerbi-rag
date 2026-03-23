@@ -1,0 +1,160 @@
+{
+  "summary": {
+    "queries": 8,
+    "recall_at_k": 1.125,
+    "mrr": 0.875,
+    "ndcg_at_k": 1.0227,
+    "hit_rate": 0.875
+  },
+  "per_query": [
+    {
+      "question": "What tables are available in the report?",
+      "filter_by_type": "table",
+      "expected_names": [
+        "Customer",
+        "Date",
+        "Product",
+        "Reseller",
+        "Sales"
+      ],
+      "retrieved_names": [],
+      "recall_at_k": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_k": 0.0,
+      "hit": false
+    },
+    {
+      "question": "How is Sales Amount calculated?",
+      "filter_by_type": "measure",
+      "expected_names": [
+        "Sales.Sales Amount",
+        "Sales.Sales Amount by Due Date"
+      ],
+      "retrieved_names": [
+        "Sales.Sales Amount",
+        "Sales.Sales Amount by Due Date",
+        "Sales.Order Quantity"
+      ],
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0,
+      "hit": true
+    },
+    {
+      "question": "Which page contains sales amount by order date and due date?",
+      "filter_by_type": "visual",
+      "expected_names": [
+        "Sales Amount by Order Date / Due Date"
+      ],
+      "retrieved_names": [
+        "Sales Amount by Order Date / Due Date",
+        "ec25b2f7759b3fd44c1d",
+        "75c624f501f3c20eb760",
+        "Sales Amount by Category and Reseller Business Type",
+        "Sales Amount by Category and Reseller Business Type"
+      ],
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0,
+      "hit": true
+    },
+    {
+      "question": "Show me reseller geography information",
+      "filter_by_type": null,
+      "expected_names": [
+        "Reseller",
+        "Reseller.Country-Region"
+      ],
+      "retrieved_names": [
+        "Reseller",
+        "Reseller.Business Type",
+        "Reseller.Country-Region",
+        "Order Quantity by Reseller Country",
+        "Sales Amount by Category and Reseller Business Type"
+      ],
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 0.9197,
+      "hit": true
+    },
+    {
+      "question": "What date fields are present?",
+      "filter_by_type": "column",
+      "expected_names": [
+        "Date.Fiscal.Month",
+        "Date.Fiscal.Year"
+      ],
+      "retrieved_names": [
+        "Date.Fiscal.Month",
+        "Date.Fiscal.Year"
+      ],
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0,
+      "hit": true
+    },
+    {
+      "question": "Which visuals use category and reseller business type?",
+      "filter_by_type": "visual",
+      "expected_names": [
+        "Sales Amount by Category and Reseller Business Type"
+      ],
+      "retrieved_names": [
+        "Sales Amount by Category and Reseller Business Type",
+        "Sales Amount by Category and Reseller Business Type",
+        "Order Quantity by Reseller Country",
+        "e62f8d740cd4f569300d",
+        "ddc669d1ed997bf82754"
+      ],
+      "recall_at_k": 2.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.6309,
+      "hit": true
+    },
+    {
+      "question": "What pages exist in the report?",
+      "filter_by_type": "page",
+      "expected_names": [
+        "Page 1",
+        "Page 2",
+        "Page 3"
+      ],
+      "retrieved_names": [
+        "Page 1",
+        "Page 2",
+        "Page 3"
+      ],
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0,
+      "hit": true
+    },
+    {
+      "question": "Tell me about order quantity",
+      "filter_by_type": null,
+      "expected_names": [
+        "Sales.Order Quantity"
+      ],
+      "retrieved_names": [
+        "Sales.Order Quantity",
+        "Sales.Order Quantity",
+        "Order Quantity by Reseller Country",
+        "Sales Order",
+        "Sales Amount by Order Date / Due Date"
+      ],
+      "recall_at_k": 2.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.6309,
+      "hit": true
+    }
+  ],
+  "config": {
+    "requested_mode": "lexical",
+    "vector_available": false,
+    "effective_mode": "lexical",
+    "top_k": 5,
+    "artifact_count": 31,
+    "pbix": "data/raw/Adventure Works Sales Sample.pbix",
+    "benchmark": "evals/adventure_works_retrieval.jsonl"
+  }
+}

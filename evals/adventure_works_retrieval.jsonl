@@ -1,0 +1,8 @@
+{"question":"What tables are available in the report?","filter_by_type":"table","expected_names":["Customer","Date","Product","Reseller","Sales"],"notes":"Broad table discovery query should surface core business tables."}
+{"question":"How is Sales Amount calculated?","filter_by_type":"measure","expected_names":["Sales.Sales Amount","Sales.Sales Amount by Due Date"],"notes":"Measure-focused query should retrieve the sales amount measures."}
+{"question":"Which page contains sales amount by order date and due date?","filter_by_type":"visual","expected_names":["Sales Amount by Order Date / Due Date"],"notes":"Visual query should find the relevant chart title."}
+{"question":"Show me reseller geography information","expected_names":["Reseller","Reseller.Country-Region"],"notes":"Reseller geography question should surface table and country-region field."}
+{"question":"What date fields are present?","filter_by_type":"column","expected_names":["Date.Fiscal.Month","Date.Fiscal.Year"],"notes":"Column retrieval should surface the inferred date hierarchy fields."}
+{"question":"Which visuals use category and reseller business type?","filter_by_type":"visual","expected_names":["Sales Amount by Category and Reseller Business Type"],"notes":"Should find the repeated category/business-type visual."}
+{"question":"What pages exist in the report?","filter_by_type":"page","expected_names":["Page 1","Page 2","Page 3"],"notes":"Page-level query should surface all report pages."}
+{"question":"Tell me about order quantity","expected_names":["Sales.Order Quantity","Sales.Order Quantity"],"notes":"Order quantity should retrieve the column or measure variants from Sales."}

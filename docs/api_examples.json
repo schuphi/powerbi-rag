@@ -1,0 +1,77 @@
+{
+  "basic_qa": {
+    "request": {
+      "method": "POST",
+      "url": "/ask",
+      "body": {
+        "question": "What tables are available in this Power BI report?",
+        "session_id": "portfolio_demo"
+      }
+    },
+    "response": {
+      "answer": "Based on the Power BI report structure, I can see this contains a business intelligence dataset. While the current PBIX format limits detailed extraction, Adventure Works reports typically include core business entities like Customer, Product, Sales, and Territory tables, connected through relationships to enable comprehensive business analysis.",
+      "context": [
+        {
+          "type": "report",
+          "name": "Adventure Works Sales Sample",
+          "score": 0.92,
+          "content": "Power BI Report containing business data structures..."
+        }
+      ],
+      "sources": [
+        "report: Adventure Works Sales Sample"
+      ],
+      "confidence": 0.78,
+      "cached": false
+    }
+  },
+  "measure_explanation": {
+    "request": {
+      "method": "POST",
+      "url": "/explain/measure",
+      "params": {
+        "measure_name": "Total Sales"
+      }
+    },
+    "response": {
+      "answer": "Total Sales is a fundamental DAX measure that aggregates sales amounts across the current filter context. It typically uses formulas like SUM(Sales[SalesAmount]) or CALCULATE(SUM(Sales[SalesAmount])) to ensure proper context handling. This measure forms the foundation for revenue analysis and is often used in visualizations showing sales performance across time, geography, and product dimensions.",
+      "confidence": 0.85,
+      "sources": [
+        "measure: Total Sales"
+      ]
+    }
+  },
+  "health_check": {
+    "request": {
+      "method": "GET",
+      "url": "/health"
+    },
+    "response": {
+      "status": "healthy",
+      "version": "0.1.0",
+      "components": {
+        "vector_store": "healthy",
+        "rag_pipeline": "healthy",
+        "embedding_processor": "healthy",
+        "cache": "healthy"
+      },
+      "stats": {
+        "vector_store": {
+          "count": 150,
+          "types": [
+            "table",
+            "measure",
+            "column",
+            "visual",
+            "relationship"
+          ]
+        },
+        "cache": {
+          "response_entries": 45,
+          "hit_rate": 0.73,
+          "cost_savings_usd": 28.5
+        }
+      }
+    }
+  }
+}
